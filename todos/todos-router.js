@@ -2,21 +2,21 @@ const router = require('express').Router()
 
 const Todos = require('./todos-model.js')
 const authenticate = require('../auth/authenticate-middleware.js')
-const { isValid } = require('./users-service.js')
+const { isValid } = require('../users/users-service')
 
 router.get('/', authenticate, (req, res) => {
-  Users.find()
-    .then((users) => {
-      res.status(200).json({ users, jwt: req.jwt })
+  Todos.find()
+    .then((todos) => {
+      res.status(200).json({ todos })
     })
     .catch((err) => res.send(err))
 })
 
 router.post('/', authenticate, (req, res) => {
-  const user = req.body
+  const todo = req.body
 
-  if (isValid(user)) {
-    Users.add(user)
+  if (isValid(todo)) {
+    Todos.add(todo)
       .then((saved) => {
         res.status(201).json({ data: saved })
       })
