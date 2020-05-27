@@ -15,6 +15,8 @@ base URL: "https://bw-wunderlist2.herokuapp.com/"
 
 | Method | Endpoint      | Description/Requirements                                                                                                                                                                                                                                                            |
 | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | /api/users         | { "username": "Here", "password": "Here" } |
-
+| GET    | /api/users         | { "id": 123, "username": "Here", "password": "Here" } |
+| GET    | /api/users:id      | { Requires ID ---> "id": 123, "username": "Here", "password": "Here" } |
+| PUT    | /api/users:id      | { Requires ID ---> "username": "Here", "password": "Here" } |
+| DELETE | /api/users:id      | { Requires ID ---> "message": "User Removed" } |
 
