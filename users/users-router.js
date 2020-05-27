@@ -7,7 +7,7 @@ const { isValid } = require('./users-service.js')
 router.get('/', authenticate, (req, res) => {
   Users.find()
     .then((users) => {
-      res.status(200).json({ users, jwt: req.jwt })
+      res.status(200).json({ users })
     })
     .catch((err) => res.send(err))
 })
