@@ -8,7 +8,5 @@ base URL: "https://bw-wunderlist2.herokuapp.com/"
 
 | Method | Endpoint      | Description/Requirements                                                                                                                                                                                                                                                            |
 | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/auth/register | Creates a `user` using the information sent inside the `body` of the request. "username": "Here", <-- String "password": "Here", <-- String                                                           
-                                     |
+| POST   | /api/auth/register | Creates a `user` using the information sent inside the `body` of the request. "username": "Here", <-- String "password": "Here", <-- String |
 | POST   | /api/auth/login    | Requires a Register first. { "username": "Here", "password": "Here" } |
-                                                               |
