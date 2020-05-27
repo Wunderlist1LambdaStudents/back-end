@@ -1,14 +1,14 @@
 const pgConnection = process.env.DATABASE_URL || {
-  database: 'pg databasenamehere', //postgres by default
-  user: 'pg usernamehere', //postgres by default
-  password: 'pg passhere', //blank by default
+  database: 'nodelogin', //postgres by default
+  user: 'postgres', //postgres by default
+  password: 'hinata5185', //blank by default
 }
 
 module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/users.db3',
+      filename: './database/users.db3',
     },
     useNullAsDefault: true,
     pool: {
@@ -17,10 +17,23 @@ module.exports = {
       },
     },
     migrations: {
-      directory: './data/migrations',
+      directory: './database/migrations',
     },
     seeds: {
-      directory: './data/seeds',
+      directory: './database/seeds',
+    },
+  },
+  testing: {
+    client: 'sqlite3',
+    connection: {
+      filename: './database/test.db3',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations',
+    },
+    seeds: {
+      directory: './database/seeds',
     },
   },
   production: {
@@ -31,10 +44,10 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      directory: './data/migrations',
+      directory: './database/migrations',
     },
     seeds: {
-      directory: './data/seeds',
+      directory: './database/seeds',
     },
   },
 }
