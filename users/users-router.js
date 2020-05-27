@@ -13,7 +13,7 @@ router.get('/', authenticate, (req, res) => {
 })
 
 router.get('/:id', authenticate, (req, res) => {
-  const id = req.params
+  const id = req.params.id
 
   Users.findById(id)
     .then((user) => {
