@@ -12,6 +12,22 @@ router.get('/', authenticate, (req, res) => {
     .catch((err) => res.send(err))
 })
 
+router.get('/:id', authenticate, (req, res) => {
+  const id = req.params
+
+  Users.findById(id)
+    .then((user) => {
+      if (user) {
+        res.status(200).json(user)
+      } else {
+        res.status(404).json({ message: 'Could not find user with given id.' })
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: 'Failed to get user' })
+    })
+})
+
 router.post('/', authenticate, (req, res) => {
   const user = req.body
 
