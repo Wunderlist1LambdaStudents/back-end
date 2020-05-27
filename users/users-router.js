@@ -66,7 +66,7 @@ router.put('/:id', authenticate, (req, res) => {
 router.delete('/:id', authenticate, (req, res) => {
   const { id } = req.params
 
-  User.remove(id)
+  Users.remove(id)
     .then((user) => {
       if (user) {
         res.status(200).json({ message: 'User Removed' })
@@ -74,7 +74,7 @@ router.delete('/:id', authenticate, (req, res) => {
         res.status(404).json({ message: 'Could not find specified user' })
       }
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(500).json({ message: 'Error deleting User' })
     })
 })

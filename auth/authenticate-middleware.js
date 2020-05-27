@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
     jwt.verify(token, secret, (error, decodedToken) => {
       if (error) {
         // the token is invalid
-        res.status(401).json({ message: 'you cannot pass!' })
+        res.status(401).json({ message: 'Invalid Credentials' })
       } else {
         // the token is good
         req.jwt = decodedToken
@@ -23,6 +23,6 @@ module.exports = (req, res, next) => {
       }
     })
   } else {
-    res.status(401).json({ you: 'shall not pass!' })
+    res.status(401).json({ you: 'No credentials provided' })
   }
 }
