@@ -44,4 +44,39 @@ router.post('/', authenticate, (req, res) => {
   }
 })
 
+router.put('/:id', (req, res) => {
+  const { id } = req.params
+  const changes = req.body
+
+  Users.findById(id)
+    .then((user) => {
+      if (user) {
+        Users.update(changes, id).then((updatedUser) => {
+          res.status(200).json(updatedUser)
+        })
+      } else {
+        res.status(404).json({ message: 'Could not find user with given id.' })
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: 'Error updating user' })
+    })
+})
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params
+
+  User.remove(id)
+    .then((user) => {
+      if (user) {
+        res.status(200).json({ message: 'User Removed' })
+      } else {
+        res.status(404).json({ message: 'Could not find specified user' })
+      }
+    })
+    .catch(() => {
+      res.status(500).json({ message: 'Error deleting User' })
+    })
+})
+
 module.exports = router
