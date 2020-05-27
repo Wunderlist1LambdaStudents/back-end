@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const pgConnection =
   process.env.DATABASE_URL || 'postgresql://postgres@localhost/auth'
 // {
