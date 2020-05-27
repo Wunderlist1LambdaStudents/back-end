@@ -1,8 +1,12 @@
-const pgConnection = process.env.DATABASE_URL || {
-  database: 'nodelogin', //postgres by default
-  user: 'postgres', //postgres by default
-  password: 'hinata5185', //blank by default
-}
+require('dotenv').config()
+
+const pgConnection =
+  process.env.DATABASE_URL || 'postgresql://postgres@localhost/auth'
+// {
+// database: 'nodelogin', //postgres by default
+// user: 'postgres', //postgres by default
+// password: 'hinata5185', //blank by default
+// }
 
 module.exports = {
   development: {
