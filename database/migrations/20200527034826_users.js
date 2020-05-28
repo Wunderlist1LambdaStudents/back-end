@@ -14,6 +14,7 @@ exports.up = function (knex) {
       todos.boolean('important').defaultTo(false)
       todos.boolean('completed').defaultTo(false)
       todos.datetime('date_time')
+      todos.boolean('isDeleted').defaultTo(false)
 
       todos
         .integer('user_id')

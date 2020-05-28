@@ -3,6 +3,7 @@ const db = require('../database/dbConfig.js')
 module.exports = {
   findTodos,
   findByTodo,
+  findTodoId,
   addTodo,
   update,
   remove,
@@ -16,6 +17,10 @@ function findTodos() {
 
 function findByTodo(id) {
   return db('todos')
+}
+
+function findTodoId(id) {
+  return db('todos').where(id)
 }
 
 function addTodo(todo, id) {
