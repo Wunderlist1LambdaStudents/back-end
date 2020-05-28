@@ -15,8 +15,19 @@ base URL: "https://bw-wunderlist2.herokuapp.com/"
 
 | Method | Endpoint      | Description/Requirements                                                                                                                                                                                                                                                            |
 | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | /api/users         | { "id": 123, "username": "Here", "password": "Here" } |
-| GET    | /api/users:id      | { Requires ID ---> "id": 123, "username": "Here", "password": "Here" } |
+| GET    | /api/users         | Visual Representation: { "id": 123, "username": "Here", "password": "Here" } |
+| GET    | /api/users:id      | Visual Representation:Requires ID -> { "id": 123, "username": "Here", "password": "Here" } |
+| GET    | /api/users:id/todos| Visual Representation:Requires ID -> {"id": 123, "title": "Go to the store", "description": "buy produce", "user_id": 123, "important": 1 or 0, "completed": 1 or 0, date_time: "date of the post ex."Wed May 27 2020 23:03:31 GMT-0500 (Central Daylight Time)" } |
 | PUT    | /api/users:id      | { Requires ID ---> "username": "Here", "password": "Here" } |
+| DELETE | /api/users:id      | { Requires ID ---> "message": "User Removed" } |
+
+### Todos Endpoints
+
+
+| Method | Endpoint      | Description/Requirements                                                                                                                                                                                                                                                            |
+| ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | /api/todos         | Visual Representation: {"id": 123, "title": "Go to the store", "description": "buy produce", "user_id": 123, "important": 1 or 0, "completed": 1 or 0, date_time: "date of the post ex."Wed May 27 2020 23:03:31 GMT-0500 (Central Daylight Time)" } |
+| GET    | /api/todos:id      | Visual Representation:Requires ID -> {"id": 123, "title": "Go to the store", "description": "buy produce", "user_id": 123, "important": 1 or 0, "completed": 1 or 0, date_time: "date of the post ex."Wed May 27 2020 23:03:31 GMT-0500 (Central Daylight Time)" } |
+| PUT    | /api/todos:id      | Visual Representation:Requires ID -> {"id": 123, "title": "Go to the store", "description": "buy produce", "user_id": 123, "important": 1 or 0, "completed": 1 or 0, date_time: "date of the post ex."Wed May 27 2020 23:03:31 GMT-0500 (Central Daylight Time)" } |
 | DELETE | /api/users:id      | { Requires ID ---> "message": "User Removed" } |
 
