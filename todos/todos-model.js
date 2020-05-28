@@ -4,7 +4,6 @@ module.exports = {
   findTodos,
   findByTodo,
   addTodo,
-  findById,
   update,
   remove,
 }
@@ -15,8 +14,8 @@ function findTodos() {
     .orderBy('id')
 }
 
-function findByTodo(filter) {
-  return db('todos').where(filter).orderBy('id')
+function findByTodo(id) {
+  return db('todos')
 }
 
 function addTodo(todo, id) {
@@ -31,18 +30,14 @@ function addTodo(todo, id) {
   return db('todos')
     .insert(anotherTodo, id)
     .then((id) => {
-      return findByTodo(anotherTodo.id)
+      return findByTodo(anotherTodo.user_id)
     })
 }
 
-function findById(id) {
-  return db('users').where({ id }).first()
-}
-
 function update(changes, id) {
-  return db('users').update(changes).where({ id })
+  return db('todos').update(changes).where(id)
 }
 
 function remove(id) {
-  return db('users').where({ id }).del()
+  return db('todos').where(id).del()
 }
