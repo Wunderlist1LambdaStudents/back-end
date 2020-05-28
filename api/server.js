@@ -2,7 +2,6 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 
-const authenticate = require('../auth/authenticate-middleware.js')
 const authRouter = require('../auth/auth-router.js')
 const usersRouter = require('../users/users-router.js')
 const todosRouter = require('../todos/todos-router.js')
@@ -15,7 +14,7 @@ server.use(express.json())
 
 server.use('/api/auth', authRouter)
 server.use('/api/users', usersRouter)
-server.use('/api/todos', authenticate, todosRouter)
+server.use('/api/todos', todosRouter)
 
 server.get('/', (req, res) => {
   res.json({ api: 'up' })

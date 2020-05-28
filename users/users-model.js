@@ -7,6 +7,7 @@ module.exports = {
   findById,
   update,
   remove,
+  getListOfTodos,
 }
 
 function find() {
@@ -15,6 +16,10 @@ function find() {
 
 function findBy(filter) {
   return db('users').where(filter).orderBy('id')
+}
+
+function getListOfTodos(id) {
+  return db('todos').orderBy('id').where({ user_id: id })
 }
 
 async function add(user) {

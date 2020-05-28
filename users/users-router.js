@@ -28,6 +28,22 @@ router.get('/:id', authenticate, (req, res) => {
     })
 })
 
+router.get('/:id/todos', authenticate, (req, res) => {
+  const { id } = req.params
+
+  Users.getListOfTodos(id)
+    .then((listOfTodos) => {
+      if (listOfTodos) {
+        res.json(listOfTodos)
+      } else {
+        res.status(404).json({ message: 'Could not find user with given id.' })
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: 'Failed to get your todos' })
+    })
+})
+
 router.post('/', authenticate, (req, res) => {
   const user = req.body
 

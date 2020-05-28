@@ -13,7 +13,7 @@ exports.up = function (knex) {
       todos.varchar('description', 255)
       todos.boolean('important').defaultTo(false)
       todos.boolean('completed').defaultTo(false)
-      todos.datetime('date and time').notNullable()
+      todos.datetime('date_time')
 
       todos
         .integer('user_id')
