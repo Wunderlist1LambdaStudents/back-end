@@ -12,6 +12,20 @@ router.get('/todos', authenticate, (req, res) => {
     .catch((err) => res.send(err))
 })
 
+router.get('/todos/:id', (req, res) => {
+  const { id } = req.params
+  Todos.findTodoId({ id })
+    .then((todo) => {
+      res.status(200).json({ todo })
+    })
+    .catch((err) => {
+      console.log('get todos error', err)
+      res
+        .status(500)
+        .json({ errorMessage: `cannot get todos by id at this time` })
+    })
+})
+
 router.post('/users/:id/todos', (req, res) => {
   const todoData = req.body
   const { id } = req.params
