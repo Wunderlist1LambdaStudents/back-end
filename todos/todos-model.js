@@ -31,6 +31,7 @@ function addTodo(todo, id) {
     important: todo.important,
     completed: todo.completed,
     date_time: todo.date_time,
+    repeat: todo.repeat,
   }
   return db('todos')
     .insert(anotherTodo, id)
